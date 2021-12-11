@@ -1,5 +1,6 @@
 package com.example.islamy_project_kt.ui.home.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.islamy_project_kt.Constants
 import com.example.islamy_project_kt.R
 import com.example.islamy_project_kt.ui.home.fragments.adapter.SuraNamesAdapter
+import com.example.islamy_project_kt.ui.suraDetails.SuraDetailsActivity
 
 class QuranFragment : Fragment() {
 
@@ -46,10 +49,20 @@ class QuranFragment : Fragment() {
         adapter = SuraNamesAdapter(chapterNames)
         adapter.onItemClickListener = object :SuraNamesAdapter.OnItemClickListner{
             override fun onItemClick(pos: Int, name: String) {
-                Toast.makeText(requireContext() , name , Toast.LENGTH_SHORT ).show()
+                //Toast.makeText(requireContext() , name , Toast.LENGTH_SHORT ).show()
+                showSuraDetails(pos, name)
             }
         }
-        recycler_view.adapter=adapter    }
+        recycler_view.adapter=adapter
+    }
+
+    fun showSuraDetails(pos:Int , name :String)
+    {
+        val intent = Intent(requireContext() ,SuraDetailsActivity::class.java)
+        intent.putExtra(Constants.Extra_SURA_NAME , name)
+        intent.putExtra(Constants.Extra_SURA_POSITION , pos)
+        startActivity(intent)
+    }
 
 
 }
