@@ -38,18 +38,19 @@ class QuranFragment : Fragment() {
 
     lateinit var recycler_view :RecyclerView
     lateinit var adapter :SuraNamesAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
        initRecyclerView()
     }
 
     private fun initRecyclerView() {
         recycler_view=requireView().findViewById(R.id.recycler_view)
         adapter = SuraNamesAdapter(chapterNames)
+
         adapter.onItemClickListener = object :SuraNamesAdapter.OnItemClickListner{
             override fun onItemClick(pos: Int, name: String) {
-                //Toast.makeText(requireContext() , name , Toast.LENGTH_SHORT ).show()
+               // Toast.makeText(requireContext() , name , Toast.LENGTH_SHORT ).show()
                 showSuraDetails(pos, name)
             }
         }

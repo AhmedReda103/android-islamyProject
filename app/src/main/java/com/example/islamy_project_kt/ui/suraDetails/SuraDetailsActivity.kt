@@ -14,6 +14,7 @@ class SuraDetailsActivity : AppCompatActivity() {
     lateinit var title_tv: TextView
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: VersesAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sura_details)

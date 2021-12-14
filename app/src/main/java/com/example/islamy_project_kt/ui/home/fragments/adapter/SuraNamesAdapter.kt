@@ -7,9 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.islamy_project_kt.R
 
-class SuraNamesAdapter(val items :List<String> ) :RecyclerView.Adapter<SuraNamesAdapter.ViewHolder>(){
+class SuraNamesAdapter(val items :List<String>) :RecyclerView.Adapter<SuraNamesAdapter.ViewHolder>(){
 
     var onItemClickListener :OnItemClickListner?=null
+
     interface OnItemClickListner
     {
         fun onItemClick(pos:Int , name :String)
@@ -27,6 +28,7 @@ class SuraNamesAdapter(val items :List<String> ) :RecyclerView.Adapter<SuraNames
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
      val suraName = items.get(position)
         holder.name.setText(suraName)
+
         if(onItemClickListener!=null)
             holder.itemView.setOnClickListener{
                 onItemClickListener?.onItemClick(position , suraName)

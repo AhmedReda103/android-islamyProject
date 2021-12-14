@@ -16,7 +16,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Al fatha " />
+        tools:text="Al fatha "
+        android:fontFamily="@font/font_one"
+        android:textStyle="bold"
+        />
 
     <View
         android:layout_width="0dp"
